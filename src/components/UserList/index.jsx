@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserCard from './UserCard';
-import {loadUsers} from '../../api';
+import { loadUsers } from '../../api';
 
 class UserList extends Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class UserList extends Component {
         users: users.results.map((user) => ({ ...user, isSelected: false })),
         isFetching: false,
       });
+      console.log(this.state.users);
     } catch (e) {
       this.setState({
         error: e,
@@ -57,15 +58,35 @@ class UserList extends Component {
     ));
   };
 
+
+  renderSelectedUsers = () => {
+    const { users } = this.state;
+    
+       const selectedUser = users.map((user) => (
+        user.isSelected ? <UserCard key={user.login.uuid} handleSelect={this.handleSelect} {...user}/> : null
+      ))
+       return selectedUser;
+  };
+
+  componentDidUpdate(){
+    this.renderSelectedUsers();
+  }
+
   render() {
     const { isFetching, error } = this.state;
 
     return (
-      <section>
-        <h1>User List</h1>
-        {error && <Error error={error} />}
-        {isFetching ? <Spinner /> : this.renderUsers()}
-      </section>
+      <div>
+        <section>
+          <h1>User List</h1>
+          {error && <Error error={error} />}
+          {isFetching ? <Spinner /> : this.renderUsers()}
+        </section>
+        <section>
+        <h1>Selected User List</h1>
+         {this.renderSelectedUsers()}
+         </section>
+      </div>
     );
   }
 }

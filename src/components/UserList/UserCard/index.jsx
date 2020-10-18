@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './UserCard.module.css';
+import Icon from '@mdi/react';
+import { mdiSelectionDrag } from '@mdi/js';
 
 function UserCard(props) {
   const handleClick = () => {
@@ -20,13 +22,19 @@ function UserCard(props) {
   });
 
   return (
-    <article onClick={handleClick} className={cardStyles}>
+    <article className={cardStyles}>
       <h1>
         <span>{name.title}</span>
         {name.first} {name.last}
       </h1>
       <img src={imgSrc} alt='user' />
       <p>{email}</p>
+      <Icon
+          onClick={handleClick}
+          path={mdiSelectionDrag}
+          size={2}
+          color={isSelected ? 'white' : 'grey'}
+        />
     </article>
   );
 }
