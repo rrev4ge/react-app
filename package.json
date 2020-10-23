@@ -13,7 +13,10 @@
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-paginate": "^6.5.0",
+    "react-scripts": "3.4.3",
+    "react-spinners-css": "^1.2.2",
+    "react-ultimate-pagination": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
