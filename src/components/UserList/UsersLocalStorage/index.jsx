@@ -1,5 +1,5 @@
 import React from 'react';
-import FormSubmitter from './../../FormSubmitter/index';
+import FormSubmitter from '../../forms/FormSubmitter';
 
 export function renderUsersButton(userArray, title) {
   return (
