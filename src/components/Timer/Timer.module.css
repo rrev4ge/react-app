@@ -3,8 +3,7 @@
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    background-color: black;
-    color: white;
+    background-color: darkgray;
     font-size: 75px;
     position: absolute;
     top: 50%;
