@@ -14,7 +14,7 @@ const SignInForm = (props) => {
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={validateYupSchema}>
+    <Formik initialValues={initialValues}>
       <Form className={styles.container}>
         <mdiAccountCircle />
         <div>Username or email address</div>
