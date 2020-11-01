@@ -21,12 +21,12 @@ const Timer = () => {
         setTimer(() => ({
           ...timer,
           counter: counter + 1,
-          mSeconds: counter % 1000,
-          seconds: Math.floor((counter / 1000) % 60),
-          minutes: Math.floor((counter / 60000) % 60),
-          hours: Math.floor((counter / 3600000) % 24),
+        //   mSeconds: counter % 1000,
+          seconds: Math.floor((counter / 1) % 60),
+          minutes: Math.floor((counter / 60) % 60),
+          hours: Math.floor((counter / 3600) % 24),
         }));
-      }, 1);
+      }, 1000);
     }
     return () => clearInterval(intervalId);
   }, [timer,isActive,counter, mSeconds, seconds,minutes,hours]);
@@ -60,7 +60,7 @@ const Timer = () => {
         {isActive ? 'Pause' : 'Start'}
       </button>
       <button onClick={resetTimer}>Reset</button>
-      <span> | {mSeconds < 10 ? '00' + mSeconds : (mSeconds < 100 ? '0' + mSeconds : mSeconds)}</span>
+      <span className={styles.containerSpan}> | {mSeconds < 10 ? '00' + mSeconds : (mSeconds < 100 ? '0' + mSeconds : mSeconds)}</span>
       </div>
     </div>
   );
